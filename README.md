@@ -36,6 +36,21 @@ http://http://18.216.231.41/
 
     `sudo apt-get upgrade`
 
+    * Setup automatic updates
+
+      `sudo apt install unattended-upgrades`
+
+      Edit this file to enable
+
+      `sudo nano /etc/apt/apt.conf.d/20auto-upgrades`
+
+      ```
+      APT::Periodic::Update-Package-Lists "1";
+      APT::Periodic::Download-Upgradeable-Packages "1";
+      APT::Periodic::AutocleanInterval "7";
+      APT::Periodic::Unattended-Upgrade "1";
+      ```
+
 * Change the SSH port from `22` to `2200`.
   * Configure the Lightsail firewall to allow port `TCP 2200` in the Networking tab.
   * Change the line "Port 22" to "Port 2200".
